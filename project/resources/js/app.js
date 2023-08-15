@@ -4,14 +4,42 @@ require('./bootstrap');
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import ExampleComponent from "./components/ExampleComponent";
-import ImageUpload from "./components/ImageUpload";
+// import pages
+import Website from "./pages/Website";
+import Todo from "./pages/Todo";
+import ImageUpload from "./pages/ImageUpload";
+import Meet from "./pages/Meet";
+import MeetMain from "./pages/MeetMain";
 
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/', component: ExampleComponent },
-    { path: '/er', component: ImageUpload }
+    {
+        path: "/",
+        component: Website,
+        children: [
+            {
+                path: 'todo',
+                name: 'todo',
+                component: Todo
+            },
+            {
+                path: 'image-upload',
+                name: 'imageUpload',
+                component: ImageUpload
+            },
+            {
+                path: 'meet',
+                name: 'meet',
+                component: Meet,
+            },
+            {
+                path: 'meet-home',
+                name: 'MeetMain',
+                component: MeetMain
+            }
+        ]
+    }
 ]
 
 const router = new VueRouter({
