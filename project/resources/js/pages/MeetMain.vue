@@ -46,14 +46,14 @@ export default {
             this.active = id
         },
         myInfo() {
-            const varToken = '6|T0MEAUX1g8o3Pdo1kV4koQ61ogUxd85SkU0NiIS6'
+            const varToken = '1|KLuevVYsoOV6KLQPRoabUW7ApcFlGJs9eBEitLFg' // admin full
             axios.post('/api/me', {},
                 {
                     headers: {
                         Authorization: 'Bearer ' + varToken
                     }
                 }).then((res) => {
-                console.log(res);
+                console.log(res.data);
             }).catch((res) => {
                 console.log(res);
             })

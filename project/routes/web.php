@@ -25,10 +25,10 @@ use App\Http\Controllers\products;
 // products
 Route::get('/api/products', [products::class, 'index']);
 Route::get('/api/products/{slug}',[products::class, 'show']);
-Route::post('/api/products',[products::class, 'store']);
+Route::post('/api/product',[products::class, 'store'])->middleware(['auth:sanctum','abilities:admin:full']);
 
 //test
-Route::get('/api/product', [products::class, 'rame']);
+Route::get('/api/products', [products::class, 'rame']);
 
 //todo
 Route::get('/api/todo', [todo::class, 'index']);
@@ -41,7 +41,8 @@ Route::post('/api/image',[UploadImageContr::class, 'store'] );
 
 // Meet Users
 Route::post('/api/create-user',[AuthController::class, 'register']);
-Route::post('/api/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
+Route::post('/api/login',[AuthController::class, 'login']);
+Route::post('/api/me', [AuthController::class, 'me'])->middleware(['auth:sanctum','abilities:admin:full']);
 
 Route::get('/{vue_capture?}', function () {
     return view('welcome');
