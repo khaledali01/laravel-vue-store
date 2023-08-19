@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29b2cacd-2755-4ea2-ac46-fb03d85a1485" name="Changes" comment="Fixed translations">
+    <list default="true" id="29b2cacd-2755-4ea2-ac46-fb03d85a1485" name="Changes" comment="Updated store">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/js/pages/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/pages/product.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/js/plugins/translate.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/plugins/translate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/js/components/SiteHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/components/SiteHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/js/pages/Website.vue" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/pages/Website.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/js/pages/front/cart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/pages/front/cart.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/js/pages/front/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/pages/front/product.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/js/store/adminAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/store/adminAuth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/js/store/frontAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/store/frontAuth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +165,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/resources/js/pages/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/resources/js/store" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -168,10 +173,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\resources\js\store" />
       <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\resources\js\pages\admin" />
       <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\resources\js\assets\icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\resources\js\pages\front" />
       <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\resources\js\pages\admin" />
       <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\public\imgs" />
       <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\public" />
@@ -285,6 +292,15 @@
       <workItem from="1655709030325" duration="3030000" />
       <workItem from="1655741386834" duration="94000" />
       <workItem from="1655749979527" duration="1839000" />
+      <workItem from="1655884434524" duration="8551000" />
+      <workItem from="1656011222657" duration="3761000" />
+      <workItem from="1656075858501" duration="6137000" />
+      <workItem from="1656091998421" duration="676000" />
+      <workItem from="1656096416519" duration="912000" />
+      <workItem from="1656141476138" duration="3281000" />
+      <workItem from="1656144837618" duration="370000" />
+      <workItem from="1656145228300" duration="8088000" />
+      <workItem from="1656349488359" duration="1109000" />
     </task>
     <task id="LOCAL-00001" summary="Inital Project 2">
       <created>1650572940656</created>
@@ -426,7 +442,35 @@
       <option name="project" value="LOCAL" />
       <updated>1655710533138</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fixed translations">
+      <created>1655884546606</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1655884546606</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Added cart controllers in back">
+      <created>1656014927480</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1656014927480</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Updated cart">
+      <created>1656141594563</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1656141594563</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Updated store">
+      <created>1656163071646</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1656163071646</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,6 +509,9 @@
     <MESSAGE value="Added admin products list" />
     <MESSAGE value="Added admin product info" />
     <MESSAGE value="Fixed translations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed translations" />
+    <MESSAGE value="Added cart controllers in back" />
+    <MESSAGE value="Updated cart" />
+    <MESSAGE value="Updated store" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated store" />
   </component>
 </project>
