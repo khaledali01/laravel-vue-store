@@ -10,7 +10,7 @@ class cart extends Controller
 {
     public function index(Request $request)
     {
-        $cart = DB::table('cart')->where('user_id',$request->user()->id)->get();
+        $cart = DB::table('cart')->where('user_id', $request->user()->id)->get();
         $cart = json_decode(json_encode($cart), true);
 
         $lang = $request->header('Accept-Language');
@@ -21,7 +21,7 @@ class cart extends Controller
                     ->where('product_transitions.lang_code', '=', $lang);
             });
 
-        foreach($cart as $item){
+        foreach ($cart as $item) {
             $query->orWhere('product.id', $item['product_id']);
         }
 
@@ -34,7 +34,7 @@ class cart extends Controller
             $product[$i]["cart_price"] = number_format($cart[$i]["price"], 2, '.', '');
         }
 
-        $sum = DB::table("cart")->get()->sum("price");
+        $sum = DB::table("cart")->get()->where('user_id', $request->user()->id)->sum("price");
 
 
         return response()->json([
@@ -68,5 +68,15 @@ class cart extends Controller
             'exists' => 'already exists'
         ]);
 
+    }
+
+    public function delete(Request $request, $id)
+    {
+
+        DB::table('cart')->where("user_id", $request->user()->id)->where("product_id", $id)->delete();
+
+        return response()->json([
+            'info' => 'deleted'
+        ]);
     }
 }
