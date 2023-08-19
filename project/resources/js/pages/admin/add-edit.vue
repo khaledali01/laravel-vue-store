@@ -1,6 +1,16 @@
 <template>
     <v-container class="pt-6">
-        <v-container v-if="$store.state.isLogged">
+        <v-btn
+            color="indigo"
+            small
+            style="float: right;"
+            class="mb-2"
+            to="/admin"
+            exact
+        >
+            <v-icon>mdi-arrow-left-bold</v-icon>
+        </v-btn>
+        <v-container style="clear: both;" v-if="$store.state.isLogged">
             <v-row>
                 <v-col md="6">
                     <v-card class="px-4">
@@ -175,14 +185,13 @@
 </template>
 
 <script>
-import {request} from "../app";
+import {request} from "../../app";
 
 export default {
     name: "Admin",
     data() {
         return {
             product: {
-
                 price: null,
                 count: null,
                 ka: {
@@ -204,14 +213,19 @@ export default {
     mounted() {
         // Check if is logged
         this.$store.dispatch("checkLogin").then(() => {
-        }).catch(()=>{
+        }).catch(() => {
             this.dialog = true
         })
+
+        if(this.$route.params.slug) {
+            this.getProduct()
+        }
     },
     methods: {
         addProduct() { // 0 - ka // 1 - en
             const data = new FormData();
-            data.append('name', this.product.name)
+            data.append('ka[name]', this.product.ka.name)
+            data.append('en[name]', this.product.en.name)
             data.append('img', this.product.img)
             data.append('ka[descr]', this.product.ka.descr)
             data.append('en[descr]', this.product.en.descr)
@@ -225,19 +239,27 @@ export default {
                 })
         },
         login() {
-            this.$store.dispatch("login", this.loginData).then(()=>{
+            this.$store.dispatch("login", this.loginData).then(() => {
                 this.loginData = {}
             })
         },
         selectNext() {
             this.$refs.pasw.focus()
-        }
+        },
+        getProduct() {
+            request.get(`/api/admin/products/${this.$route.params.slug}`)
+                .then((response) => {
+                    this.product = response.data
+                })
+        },
     },
     watch: {
         'product.img'(val) {
-            if (val) {
+            if (val.name) {
                 this.product.image = URL.createObjectURL(val)
-            } else {
+            }
+            else if(val) {}
+            else {
                 this.product.image = null
             }
         },

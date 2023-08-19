@@ -39,7 +39,6 @@ class products extends Controller
 
     public function show(Request $request, $slug)
     {
-//        $product = DB::table('products')->where("slug","=",$slug)->first();
         $lang = $request->header('Accept-Language');
 
         $product = DB::table('product')
@@ -52,37 +51,50 @@ class products extends Controller
         return response()->json($product);
     }
 
+    public function adminProduct($slug)
+    {
+        $product = DB::table('product')->where("slug", "=", $slug)->first();
+        $product = json_decode(json_encode($product), true);
+        $transition = DB::table('product_transitions')->where("product_id", "=", $product['id'])->get();
+        $transition = json_decode(json_encode($transition), true);
+
+        $ka_index = $transition[0]['lang_code'] === 'ka' ? 0 : 1;
+        $en_index = !$ka_index ? 1 : 0;
+
+        $info = [
+            'ka' => [
+                "name" => $transition[$ka_index]['name'],
+                "descr" => $transition[$ka_index]['descr']
+            ],
+            'en' => [
+                "name" => $transition[$en_index]['name'],
+                "descr" => $transition[$en_index]['descr']
+            ],
+            'price' => $product['price'],
+            'count' => $product['count'],
+            'img' => $product['img'],
+            'image' => $product['img']
+        ];
+
+        return response()->json($info);
+    }
+
     public function store(Request $request)
     {
         $params = $request->all();
-//        $name = $data["name"];
-
-//        $imageName = $request->file('img')->getClientOriginalName();
-//        $imageName = str_replace(' ','-',$imageName);
-
-//        $readyData = [
-//            "name" => $name,
-//            "slug" => Str::slug($name),
-//            "descr" => $data["descr"],
-//            "price" => $data["price"],
-//            "count" => $data["count"],
-//            "img" => '/images/' . $imageName
-//        ];
-
-//        $request->file('img')->move(public_path('images'), $imageName);
-//
-//        DB::table('products')->insert($readyData);
-
-//        $transitions
-
-//        return response()->json($data);
+        $name = $params['en']["name"];
 
         $product = new Product;
 
-        $product->price = 24;
-        $product->img = "/images/bali.jpg";
-        $product->count = 13;
-        $product->slug = "ratam";
+        $imageName = $request->file('img')->getClientOriginalName();
+        $imageName = str_replace(' ', '-', $imageName);
+
+        $request->file('img')->move(public_path('images'), $imageName);
+
+        $product->price = $params['price'];
+        $product->img = '/images/' . $imageName;
+        $product->count = $params['count'];
+        $product->slug = Str::slug($name);
 
         $product->save();
 
@@ -90,8 +102,8 @@ class products extends Controller
 
         Transitons::create([
             'product_id' => $product->id,
-            'name' => "რატა",
-            'descr' => "კაი რატა",
+            'name' => $params['ka']["name"],
+            'descr' => $params['ka']["descr"],
             'lang_code' => "ka"
         ]);
 
@@ -99,8 +111,8 @@ class products extends Controller
 
         Transitons::create([
             'product_id' => $product->id,
-            'name' => "rata",
-            'descr' => "kai rata",
+            'name' => $params['en']["name"],
+            'descr' => $params['en']["descr"],
             'lang_code' => "en"
         ]);
 
@@ -108,11 +120,11 @@ class products extends Controller
 
         $data = Product::all();
 
+        $data2 = Transitons::all();
+
         return response()->json([
             'data' => $data,
-            "id" => $product->id,
-            "descr - ka" => $params['ka']["descr"],
-            "descr - en" => $params['en']["descr"]
+            'data2' => $data2
         ]);
     }
 }

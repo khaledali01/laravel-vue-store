@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29b2cacd-2755-4ea2-ac46-fb03d85a1485" name="Changes" comment="Add to cart - localstorage">
+    <list default="true" id="29b2cacd-2755-4ea2-ac46-fb03d85a1485" name="Changes" comment="Added admin products list">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/js/components/SiteHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/components/SiteHeader.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/js/pages/product.vue" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/pages/product.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/js/pages/admin/add-edit.vue" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/js/pages/admin/add-edit.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,13 +19,21 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.0">
     <include_path>
@@ -152,7 +161,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/resources/js/assets/icons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/project/resources/js/pages/admin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2021.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -160,14 +169,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\resources\js\pages\admin" />
       <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\resources\js\assets\icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\resources\js\pages\admin" />
       <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\public\imgs" />
       <recent name="C:\Users\windows 10\Desktop\img modal\laravel\laravel_vue_shop\project\public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.hot">
+  <component name="RunManager" selected="PHP Script.Laravel">
     <configuration name="Laravel" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/project/artisan" scriptParameters="serve">
       <method v="2" />
     </configuration>
@@ -268,7 +279,10 @@
       <workItem from="1655112434770" duration="2550000" />
       <workItem from="1655123621678" duration="6064000" />
       <workItem from="1655144516282" duration="4286000" />
-      <workItem from="1655198592031" duration="11132000" />
+      <workItem from="1655198592031" duration="11776000" />
+      <workItem from="1655275288497" duration="1901000" />
+      <workItem from="1655468008092" duration="3618000" />
+      <workItem from="1655541967226" duration="17789000" />
     </task>
     <task id="LOCAL-00001" summary="Inital Project 2">
       <created>1650572940656</created>
@@ -375,7 +389,28 @@
       <option name="project" value="LOCAL" />
       <updated>1655235147931</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Updated - Add to cart - localstorage">
+      <created>1655236404379</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1655236404379</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Updated router for admin">
+      <created>1655547637966</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1655547637966</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added admin products list">
+      <created>1655619468488</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1655619468488</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,6 +444,9 @@
     <MESSAGE value="Added product price and kg inputs for sale" />
     <MESSAGE value="Updated product price and kg inputs for sale" />
     <MESSAGE value="Add to cart - localstorage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add to cart - localstorage" />
+    <MESSAGE value="Updated - Add to cart - localstorage" />
+    <MESSAGE value="Updated router for admin" />
+    <MESSAGE value="Added admin products list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added admin products list" />
   </component>
 </project>
