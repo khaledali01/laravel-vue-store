@@ -76,12 +76,14 @@
                                                     <v-text-field
                                                         label="მისამართი"
                                                         required
+                                                        v-model="order_info.address"
                                                     ></v-text-field>
                                                 </v-col>
                                                 <v-col cols="12">
                                                     <v-text-field
                                                         label="ნომერი"
                                                         required
+                                                        v-model="order_info.number"
                                                     ></v-text-field>
                                                 </v-col>
                                                 <v-col
@@ -109,7 +111,7 @@
                                         <v-btn
                                             color="blue darken-1"
                                             text
-                                            @click="dialog = false"
+                                            @click="buy"
                                         >
                                             დადასტურება
                                         </v-btn>
@@ -138,7 +140,11 @@ export default {
                 sum: null,
                 all: null
             },
-            dialog: false
+            dialog: false,
+            order_info: {
+                address: null,
+                number: null
+            }
         }
     },
     mounted() {
@@ -150,6 +156,16 @@ export default {
                 .then((res) => {
                     this.cart = res.data
                     this.$store.state.front.cartCount = res.data.all
+                })
+        },
+        buy() {
+            request.post('/api/products/buy', {
+                list: this.cart.list,
+                info: this.order_info
+            })
+                .then((res) => {
+                    console.log(res);
+                    this.dialog = false
                 })
         }
     },

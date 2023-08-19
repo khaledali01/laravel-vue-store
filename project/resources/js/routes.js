@@ -1,12 +1,11 @@
-import Todo from "./pages/Todo";
-import ImageUpload from "./pages/ImageUpload";
-import Meet from "./pages/Meet";
-import MeetMain from "./pages/MeetMain";
+
 //front
 import Website from "./pages/Website";
 import Home from "./pages/Home";
 import product from "./pages/front/product";
 import cart from './pages/front/cart'
+import about from "./components/front/about";
+
 // admin
 import AdminWebsite from "./pages/Admin-Webiste";
 import admin from "./pages/admin/admin"
@@ -40,24 +39,9 @@ const routes = [
                 component: cart
             },
             {
-                path: 'todo',
-                name: 'todo',
-                component: Todo
-            },
-            {
-                path: 'image-upload',
-                name: 'imageUpload',
-                component: ImageUpload
-            },
-            {
-                path: 'meet',
-                name: 'meet',
-                component: Meet,
-            },
-            {
-                path: 'meet-home',
-                name: 'MeetMain',
-                component: MeetMain
+                path: 'about',
+                name: 'about',
+                component: about
             }
         ]
     },

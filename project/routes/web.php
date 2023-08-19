@@ -26,6 +26,8 @@ use App\Http\Controllers\cart;
 // products
 Route::get('/api/products', [products::class, 'index']);
 Route::get('/api/products/{slug}',[products::class, 'show']);
+Route::post('/api/products/buy', [products::class, 'buy'])->middleware(['auth:sanctum','abilities:user:normal']);
+
 
 // cart
 Route::get('/api/cart',[cart::class, 'index'])->middleware('auth:sanctum');
@@ -42,20 +44,13 @@ Route::post('/api/product',[products::class, 'store'])->middleware(['auth:sanctu
 Route::get('/api/admin/products/{slug}', [products::class, 'adminProduct'])->middleware(['auth:sanctum','abilities:admin:full']);
 Route::delete('/api/admin/products/{slug}', [products::class, 'delete'])->middleware(['auth:sanctum','abilities:admin:full']);
 Route::post('/api/me', [AuthController::class, 'me'])->middleware(['auth:sanctum','abilities:admin:full']);
+Route::get('/api/buy/list', [products::class, 'buy_list'])->middleware(['auth:sanctum','abilities:admin:full']);
+Route::get('/api/buy/info', [products::class, 'buy_info'])->middleware(['auth:sanctum','abilities:admin:full']);
 
-//todo
-Route::get('/api/todo', [todo::class, 'index']);
-Route::post('/api/todo',[todo::class, 'store']);
-Route::put('/api/todo',[todo::class, 'update']);
-
-//images
-//Route::get('/api/image', [todo::class, 'index']);
-Route::post('/api/image',[UploadImageContr::class, 'store'] );
-
-// Meet Users
+//auth
 Route::post('/api/create-user',[AuthController::class, 'register']);
 Route::post('/api/login',[AuthController::class, 'login']);
-//Route::post('/api/me', [AuthController::class, 'me'])->middleware(['auth:sanctum','abilities:admin:full']);
+
 
 Route::get('/{vue_capture?}', function () {
     return view('welcome');
